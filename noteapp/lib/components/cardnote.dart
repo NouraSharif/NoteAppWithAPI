@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:noteapp/model/notemodel.dart';
 
 class CardNotes extends StatelessWidget {
-  final String title;
-  final String content;
+  final NoteModel notemodel;
   final void Function()? onTap;
   final Widget? trailing;
   const CardNotes({
     super.key,
-    required this.title,
-    required this.content,
+    required this.notemodel,
     required this.onTap,
     required this.trailing,
   });
@@ -20,8 +19,8 @@ class CardNotes extends StatelessWidget {
       child: Card(
         child: ListTile(
           leading: Image.asset("images/notes2.png"),
-          title: Text(title),
-          subtitle: Text(content),
+          title: Text("${notemodel.notesTitle}"),
+          subtitle: Text("${notemodel.notesContent}"),
           trailing: trailing,
         ),
       ),

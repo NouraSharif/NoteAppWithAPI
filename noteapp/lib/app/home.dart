@@ -4,6 +4,7 @@ import 'package:noteapp/components/cardnote.dart';
 import 'package:noteapp/components/crud.dart';
 import 'package:noteapp/constant/linkapi.dart';
 import 'package:noteapp/main.dart';
+import 'package:noteapp/model/notemodel.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -67,8 +68,7 @@ class _HomeState extends State<Home> {
                 //----------------------------
                 itemBuilder: (context, i) {
                   return CardNotes(
-                    title: data['data'][i]["notes_title"].toString(),
-                    content: data['data'][i]["notes_content"].toString(),
+                    notemodel: NoteModel.fromJson(data['data'][i]),
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
