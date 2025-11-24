@@ -2,7 +2,7 @@ class NoteModel {
   int? notesId;
   String? notesTitle;
   String? notesContent;
-  Null notesImage;
+  String? notesImage; //ليش لازم نحط اشارة ؟ والا بعطي ايرور
   int? notesUsers;
 
   NoteModel({

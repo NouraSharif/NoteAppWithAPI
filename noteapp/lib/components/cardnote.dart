@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:noteapp/constant/linkapi.dart';
 import 'package:noteapp/model/notemodel.dart';
 
 class CardNotes extends StatelessWidget {
@@ -18,7 +19,19 @@ class CardNotes extends StatelessWidget {
       onTap: onTap,
       child: Card(
         child: ListTile(
-          leading: Image.asset("images/notes2.png"),
+          leading: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.network(
+              "$linkImageServer${notemodel.notesImage}",
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+              //headers: {'Accept': '*/*', 'User-Agent': 'Flutter'},
+              errorBuilder: (context, error, stackTrace) {
+                return Icon(Icons.error, color: Colors.red);
+              },
+            ),
+          ),
           title: Text("${notemodel.notesTitle}"),
           subtitle: Text("${notemodel.notesContent}"),
           trailing: trailing,

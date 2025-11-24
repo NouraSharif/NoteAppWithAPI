@@ -1,5 +1,7 @@
 const String linkServerName = "http://localhost/coursephp";
-
+//const String linkImageServer = "http://localhost/coursephp/upload";
+// استخدم image.php بدل المجلد المباشر
+const String linkImageServer = "$linkServerName/image.php?name=";
 //Auth
 const String linkSignUp = "$linkServerName/auth/signup.php";
 const String linkSignIn = "$linkServerName/auth/signin.php";
