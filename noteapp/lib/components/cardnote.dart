@@ -26,7 +26,6 @@ class CardNotes extends StatelessWidget {
               width: 50,
               height: 50,
               fit: BoxFit.cover,
-              //headers: {'Accept': '*/*', 'User-Agent': 'Flutter'},
               errorBuilder: (context, error, stackTrace) {
                 return Icon(Icons.error, color: Colors.red);
               },

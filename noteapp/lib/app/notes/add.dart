@@ -123,7 +123,7 @@ class _AddNotesState extends State<AddNotes> {
                                                   .readAsBytes(); // مهم للويب
                                           setState(() {});
                                         }
-                                        setState(() {});
+                                        
                                       },
                                     ),
                                     ListTile(
@@ -142,7 +142,7 @@ class _AddNotesState extends State<AddNotes> {
                                                   .readAsBytes(); // مهم للويب
                                           setState(() {});
                                         }
-                                        setState(() {});
+                                        
                                       },
                                     ),
                                   ],

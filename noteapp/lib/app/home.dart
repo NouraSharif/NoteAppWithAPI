@@ -82,6 +82,8 @@ class _HomeState extends State<Home> {
                       onPressed: () async {
                         var response = await crud.postRequest(linkDeleteNote, {
                           "id": data["data"][i]["notes_id"].toString(),
+                          "imagename":
+                              data["data"][i]["notes_image"].toString(),
                         });
                         if (response["status"] == "success") {
                           Navigator.of(context).pushReplacementNamed("home");
