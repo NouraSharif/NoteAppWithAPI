@@ -4,6 +4,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 //import 'package:path/path.dart';
 
+String _basicAuth = 'Basic ' + base64Encode(utf8.encode('wael:wael12345'));
+
+Map<String, String> myheaders = {'authorization': _basicAuth};
+
 mixin class Crud {
   getRequest(String url) async {
     try {
@@ -21,7 +25,11 @@ mixin class Crud {
 
   postRequest(String uri, Map data) async {
     try {
-      var response = await http.post(Uri.parse(uri), body: data);
+      var response = await http.post(
+        Uri.parse(uri),
+        body: data,
+        headers: myheaders,
+      );
       if (response.statusCode == 200) {
         var responsebody = jsonDecode(response.body);
         return responsebody;
@@ -82,6 +90,7 @@ mixin class Crud {
     String fileName,
   ) async {
     var request = http.MultipartRequest("POST", Uri.parse(uri));
+    request.headers.addAll(myheaders);
 
     request.files.add(
       http.MultipartFile.fromBytes("file", fileBytes, filename: fileName),
